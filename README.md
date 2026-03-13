@@ -22,7 +22,7 @@ Implementar un sistema de autenticación robusto y seguro siguiendo principios d
 ## 🛠️ Tareas Técnicas (Actividad 2 - Issues)
 | ID | Tarea del Proyecto | Criterios de Aceptación |
 | :--- | :--- | :--- |
-| **TS01** | **Base de Datos:** Diseño de modelos y esquemas. | Esquema Mongoose/SQL definido y conexión establecida. |
+| **TS01** | **Base de Datos:** Diseño de modelos y esquemas. | Esquema Mongoose  y conexión establecida. |
 | **TS02** | **Interfaz UI:** Maquetación de componentes responsivos. | Vistas funcionales (Vue/Quasar) con validaciones activas. |
 | **TS03** | **Servidor:** Setup de API Rest y lógica de negocio. | Rutas configuradas y controladores de autenticación operativos. |
 | **TS04** | **Testing:** Creación de suite de pruebas unitarias. | Cobertura de tests para lógica de login y registro. |
