@@ -1,50 +1,60 @@
-# 🔐 Módulo de Autenticación - Equipo GitProjectDevs
+# 🏫 Sistema de Gestión de Asistencia "Colegio San José"
 
-## 🎯 Objetivo
-Implementar un sistema de autenticación robusto y seguro siguiendo principios de **Clean Code**. Este módulo permite gestionar el ciclo de acceso del usuario, desde el registro inicial hasta la visualización de un panel de control protegido, utilizando **GitHub Projects** para la planificación y seguimiento ágil.
+**Equipo de Desarrollo:** **@deivi18contreras**- Deivi Contreras | **@mikeAbril** - Jaime Carreño | **@Brahian0W** - Brahiam Ramirez 
+**Estado:** 🚀 Fase de Cimentación y Autenticación  
 
-## 👥 Integrantes
-* **@deivi18contreras** - Deivi Contreras 
-* **@mikeAbril** - Jaime Carreño 
-* **@Brahian0W** - Brahiam Ramirez 
+Proyecto de digitalización diseñado para optimizar el control de asistencia de **1.200 estudiantes** y **60 docentes**. La solución permite registros en **menos de 2 minutos** desde cualquier dispositivo, eliminando la carga administrativa manual del 30% y garantizando disponibilidad de datos en tiempo real.
 
----
+## 🛠️ Stack Tecnológico (Estándares)
 
-## 🛠️ Tareas Técnicas 
-| ID | Tarea del Proyecto | Criterios de Aceptación |
-| :--- | :--- | :--- |
-| **TS01** | **Base de Datos:** Diseño de modelos y esquemas. | Esquema Mongoose  y conexión establecida. |
-| **TS02** | **Interfaz UI:** Maquetación de componentes responsivos. | Vistas funcionales (Vue/Quasar) con validaciones activas. |
-| **TS03** | **Servidor:** Setup de API Rest y lógica de negocio. | Rutas configuradas y controladores de autenticación operativos. |
-| **TS04** | **Testing:** Creación de suite de pruebas unitarias. | Cobertura de tests para lógica de login y registro. |
-| **TS05** | **Documentación:** Elaboración de manual técnico. | README completo con guía de instalación y variables .env. |
+### **Backend (backend)**
+* **Runtime:** Node.js (LTS) con arquitectura de **Módulos ECMAScript (ESM)**.
+* **Framework:** Express.js con manejo de errores centralizado.
+* **Persistencia:** MongoDB + Mongoose (Modelos **PascalCase**).
+* **Estructura:** Arquitectura directa por carpetas de funcionalidad (Sin carpeta `/src`).
 
----
+### **Frontend (Num-Front)**
+* **Framework:** Vue 3 (Composition API) + Vite.
+* **UI Library:** Quasar Framework (Optimizado para Móvil/PC).
+* **Gestión de Estado:** LocalStorage para persistencia funcional de sesión.
 
-## 📋 Historias de Usuario 
-| ID | Historia de Usuario | Criterios de Aceptación |
-| :--- | :--- | :--- |
-| **HU01** | **Login:** Como usuario registrado quiero iniciar sesión con mi correo y contraseña para acceder al panel de control. | Validación de campos, manejo de tokens (JWT) y redirección exitosa. |
-| **HU02** | **Registro:** Como nuevo usuario quiero crear una cuenta con mis datos básicos para poder utilizar el sistema. | Almacenamiento seguro de datos y cifrado de contraseñas (bcrypt). |
-| **HU03** | **Dashboard:** Como usuario autenticado quiero ver mi panel de bienvenida para gestionar mi información. | Protección de ruta (Router Guard) y persistencia de sesión. |
-
----
-
-## 🚀 Tecnologías Utilizadas
-* **Frontend:** Vue.js 3 / Quasar Framework
-* **Backend:** Node.js / Express
-* **Base de Datos:** MongoDB (Mongoose) 
-* **Seguridad:** JSON Web Tokens (JWT) & Bcrypt para cifrado.
+## 📂 Arquitectura de Carpetas
+```text
+backend/                     front/
+├── controllers/              ├── src/
+├── database/                 │   ├── layouts/
+├── models/                   │   ├── router/
+├── routes/                   │   ├── services/
+└── middlewares/              │   └── views/
 
 ---
 
-## 📊 Gestión del Proyecto
-Para el seguimiento de tareas, utilizamos **GitHub Projects** aplicando metodologías ágiles (Kanban). 
+### Parte 3: El Plan de Trabajo (Las HUS y Tareas)
+```markdown
+## 📋 Planificación de Sprint (Tasks & Hours)
 
-* **Enlace al Tablero:** (https://github.com/deivi18contreras/Proyecto-Git.git)
-* **Flujo de Trabajo:** `Pendiente` ➔ `En Proceso` ➔ `En Revisión` ➔ `Finalizado`.
-* **Métricas del Sprint:** * **Tiempo Estimado Total:** 30 Horas.
-    * **Complejidad:** Media - Alta.
-    * **Priorización:** Uso de etiquetas (High, Medium, Low).
+### **[HUS-01] Autenticación (Login) - 3.0h**
+* **[HUS-01-T1]** Formulario Login Quasar (Frontend | UI | Alta | 0.5h )
+* **[HUS-01-T2]** Errores Genéricos y Recuperación (Frontend | UI | Media | 0.5h )
+* **[HUS-01-T4]** Lógica de Bloqueo 15 min (Backend | Auth | Alta | 1.0h)
 
----
+### **[HUS-02] Registro de Usuarios - 2.5h**
+* **[HUS-02-T1]** Formulario de Registro C1 (Frontend | UI | Alta | 0.5h )
+* **[HUS-02-T2]** Esquema Usuario Mongoose C3 (Backend | Database | Alta | 1.0h `)
+* **[HUS-02-T3]** Política Seguridad C2 (Backend | Security | Media | 0.5h`)
+
+### **[HUS-03] Dashboard Principal - 2.5h**
+* **[HUS-03-T1]** Horario Docente y Clase Actual (Frontend | UI | Media | 1.0h)
+* **[HUS-03-T3]** Alertas Críticas y Acceso Rápido (Frontend | UI | Alta | 1.0h)
+
+
+## 🌳 Estrategia de Ramas
+* **`main`**: Código estable de producción.
+* **``**: Desarrollo de componentes Frontend.
+* **``**: Desarrollo de Modelos y API Backend.
+
+## ✅ Estado de Ejecución Actual
+- [x] Estructura base Backend/Frontend (ESM, Quasar, Vite).
+- [x] Gitignore profesional configurado.
+- [ ] Implementación de Modelos y Controladores.
+- [ ] Vistas funcionales: Login, Dashboard y Registro.
