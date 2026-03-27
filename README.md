@@ -1,50 +1,60 @@
-# 🔐 Módulo de Autenticación - Equipo GitProjectDevs
+# 🔐 SISTEMA DE GESTIÓN DE ASISTENCIA "COLEGIO SAN JOSÉ"
 
 ## 🎯 Objetivo
-Implementar un sistema de autenticación robusto y seguro siguiendo principios de **Clean Code**. Este módulo permite gestionar el ciclo de acceso del usuario, desde el registro inicial hasta la visualización de un panel de control protegido, utilizando **GitHub Projects** para la planificación y seguimiento ágil.
+Diseñar y desarrollar un ecosistema  orientado a la transformación del Colegio San José, con el objetivo de automatizar el control de asistencia para 1.200 estudiantes y 60 docentes. La solución debe reducir el tiempo de registro a menos de 2 minutos mediante una arquitectura responsive (Mobile/PC), eliminando el 30% de la carga administrativa manual y garantizando la disponibilidad de datos en tiempo real para la toma de decisiones inmediata de la coordinación académica.
+
 
 ## 👥 Integrantes
 * **@deivi18contreras** - Deivi Contreras 
 * **@mikeAbril** - Jaime Carreño 
 * **@Brahian0W** - Brahiam Ramirez 
 
----
+## 🛠️ Stack Tecnológico (Estándares)
 
-## 🛠️ Tareas Técnicas 
-| ID | Tarea del Proyecto | Criterios de Aceptación |
+### **Backend (backend)**
+* **Runtime:** Node.js (LTS) con arquitectura de **Módulos ECMAScript (ESM)**.
+* **Framework:** Express.js con manejo de errores centralizado.
+* **Persistencia:** MongoDB + Mongoose (Modelos **PascalCase**).
+* **Estructura:** Arquitectura directa por carpetas de funcionalidad (Sin carpeta `/src`).
+
+### **Frontend (Num-Front)**
+* **Framework:** Vue 3 (Composition API) + Vite.
+* **UI Library:** Quasar Framework (Optimizado para Móvil/PC).
+* **Gestión de Estado:** LocalStorage para persistencia funcional de sesión.
+## 📂 Arquitectura de Carpetas
+```text
+backend/                     front/
+├── controllers/              ├── src/
+├── database/                 │   ├── layouts/
+├── models/                   │   ├── router/
+├── routes/                   │   ├── services/
+└── middlewares/              │   └── views/
+```
+## 📋 Configuración de Git Project (Tasks & Hours)
+
+---
+[HUS-01] Autenticación (Login) - 3.0h
+### **[HUS-01] Autenticación (Login) - 3.0h**
 | :--- | :--- | :--- |
-| **TS01** | **Base de Datos:** Diseño de modelos y esquemas. | Esquema Mongoose  y conexión establecida. |
-| **TS02** | **Interfaz UI:** Maquetación de componentes responsivos. | Vistas funcionales (Vue/Quasar) con validaciones activas. |
-| **TS03** | **Servidor:** Setup de API Rest y lógica de negocio. | Rutas configuradas y controladores de autenticación operativos. |
-| **TS04** | **Testing:** Creación de suite de pruebas unitarias. | Cobertura de tests para lógica de login y registro. |
-| **TS05** | **Documentación:** Elaboración de manual técnico. | README completo con guía de instalación y variables .env. |
-
+| **[HUS-01-T1]**| Formulario Login Quasar (Frontend | UI | Alta | 0.5h )
+> C1: Validar formato de correo y dominio @sanjose.edu.co.
+| **[HUS-01-T2]**|Errores Genéricos y Recuperación (Frontend | UI | Media | 0.5h )
+> C2: Mostrar mensaje genérico de error y enlace de recuperación.
+|**[HUS-01-T4]**| Lógica de Bloqueo 15 min (Backend | Auth | Alta | 1.0h)
+> Cuidado: Mantener sesión funcional tras recargar navegador.
+|**[HUS-01-T4] Lógica de Bloqueo C4 (Backend | Auth | Alta | 1.0h)**
+> Bloquear cuenta por 15 minutos tras 3 intentos fallidos.|
 ---
 
-## 📋 Historias de Usuario 
-| ID | Historia de Usuario | Criterios de Aceptación |
-| :--- | :--- | :--- |
-| **HU01** | **Login:** Como usuario registrado quiero iniciar sesión con mi correo y contraseña para acceder al panel de control. | Validación de campos, manejo de tokens (JWT) y redirección exitosa. |
-| **HU02** | **Registro:** Como nuevo usuario quiero crear una cuenta con mis datos básicos para poder utilizar el sistema. | Almacenamiento seguro de datos y cifrado de contraseñas (bcrypt). |
-| **HU03** | **Dashboard:** Como usuario autenticado quiero ver mi panel de bienvenida para gestionar mi información. | Protección de ruta (Router Guard) y persistencia de sesión. |
+## 🌳 Estrategia de Ramas
+* **`main`**: Código estable de producción.
+* **`MikeAbril`** **`Brahian0w`**: Desarrollo de componentes Frontend.
+* **`deivi18contreras`**: Desarrollo de Modelos y API Backend.
 
----
+## ✅ Estado de Ejecución Actual
 
-## 🚀 Tecnologías Utilizadas
-* **Frontend:** Vue.js 3 / Quasar Framework
-* **Backend:** Node.js / Express
-* **Base de Datos:** MongoDB (Mongoose) 
-* **Seguridad:** JSON Web Tokens (JWT) & Bcrypt para cifrado.
-
----
-
-## 📊 Gestión del Proyecto
-Para el seguimiento de tareas, utilizamos **GitHub Projects** aplicando metodologías ágiles (Kanban). 
-
-* **Enlace al Tablero:** (https://github.com/deivi18contreras/Proyecto-Git.git)
-* **Flujo de Trabajo:** `Pendiente` ➔ `En Proceso` ➔ `En Revisión` ➔ `Finalizado`.
-* **Métricas del Sprint:** * **Tiempo Estimado Total:** 30 Horas.
-    * **Complejidad:** Media - Alta.
-    * **Priorización:** Uso de etiquetas (High, Medium, Low).
-
----
+ - []Estructura base Backend/Frontend (ESM, Quasar, Vite).
+ - []Modelo de datos Usuario.js y conexión MongoDB.
+ - []Vistas funcionales: Login, Dashboard y Registro.
+ - []Persistencia local configurada.
+ - []Gitignore profesional.
