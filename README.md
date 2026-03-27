@@ -33,8 +33,7 @@ backend/                     front/
 ## 📋 Configuración de Git Project (Tasks & Hours)
 
 ---
-[HUS-01] Autenticación (Login) - 3.0h
-### **[HUS-01] Autenticación (Login) - 3.0h**
+|### **[HUS-01] Autenticación (Login) - 3.0h**|
 | :--- | :--- | :--- |
 | **[HUS-01-T1]**| Formulario Login Quasar (Frontend | UI | Alta | 0.5h )
 > C1: Validar formato de correo y dominio @sanjose.edu.co.
