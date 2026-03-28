@@ -45,14 +45,20 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useAuthStore } from '../stores/auth.js'
 
 const email = ref('')
 const password = ref('')
 
+const router = useRouter()
+const authStore = useAuthStore()
+
 const onSubmit = () => {
   if (email.value.endsWith('@sanjose.edu.co')) {
-    // Procede con el login
+    authStore.login(email.value)
     console.log('Login exitoso con', email.value)
+    router.push('/dashboard')
   }
 }
 </script>
