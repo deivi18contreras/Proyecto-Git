@@ -1,6 +1,6 @@
 import { response, request } from 'express';
-import bcryptjs from 'bcryptjs';
 import Usuario from '../models/Usuario.js';
+import { enviarCorreoBienvenida } from '../helpers/email.js';
 
 export const usuariosPost = async (req = request, res = response) => {
     const { nombre, documento, correo, password, rol } = req.body;
@@ -16,7 +16,7 @@ export const usuariosPost = async (req = request, res = response) => {
     const existeDocumento = await Usuario.findOne({ documento });
     if (existeDocumento) {
         return res.status(400).json({
-            msg: 'El documento de identidad ya está registrado'
+            msg: 'El documento de identidad ya está registrado.'
         });
     }
 
@@ -26,16 +26,11 @@ export const usuariosPost = async (req = request, res = response) => {
     try {
         const usuario = new Usuario({ nombre, documento, correo, password, rol });
 
-        // Encriptar la contraseña
-        const salt = bcryptjs.genSaltSync();
-        usuario.password = bcryptjs.hashSync(password, salt);
-
-        // Guardar en DB
+        // Guardar en DB (Mongoose validará y luego hasheará en pre('save'))
         await usuario.save();
 
         // HUS-02-T4: Simular envío de correo de bienvenida
-        console.log(`✉️ Correo de Bienvenida enviado a: ${correo}`);
-        console.log(`Instrucciones iniciales para el usuario ${nombre} generadas.`);
+        await enviarCorreoBienvenida(nombre, correo);
 
         res.status(201).json({
             msg: 'Usuario creado exitosamente. Se ha enviado un correo de bienvenida.',
