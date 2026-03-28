@@ -4,17 +4,21 @@ import bcryptjs from 'bcryptjs';
 const UsuarioSchema = Schema({
     nombre: {
         type: String,
-        required: [true, 'El nombre es obligatorio']
+        required: [true, 'El nombre es obligatorio'],
+        trim: true
     },
     documento: {
         type: String,
         required: [true, 'El documento es obligatorio'],
-        unique: true
+        unique: true,
+        trim: true
     },
     correo: {
         type: String,
         required: [true, 'El correo es obligatorio'],
         unique: true,
+        lowercase: true,
+        trim: true,
         match: [/@sanjose\.edu\.co$/, 'El correo debe pertenecer al dominio @sanjose.edu.co']
     },
     password: {
