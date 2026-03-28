@@ -52,7 +52,7 @@ export const usuariosPost = async (req = request, res = response) => {
         }
         console.log(error);
         res.status(500).json({
-            msg: 'Error interno del servidor, hable con el administrador'
+            msg: 'Error interno del servidor hable con el administrador'
         });
     }
 };
