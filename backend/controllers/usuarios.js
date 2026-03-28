@@ -1,5 +1,6 @@
 import { response, request } from 'express';
 import Usuario from '../models/Usuario.js';
+import { enviarCorreoBienvenida } from '../helpers/email.js';
 
 export const usuariosPost = async (req = request, res = response) => {
     const { nombre, documento, correo, password, rol } = req.body;
@@ -29,8 +30,7 @@ export const usuariosPost = async (req = request, res = response) => {
         await usuario.save();
 
         // HUS-02-T4: Simular envío de correo de bienvenida
-        console.log(`✉️ Correo de Bienvenida enviado a: ${correo}`);
-        console.log(`Instrucciones iniciales para el usuario ${nombre} generadas.`);
+        await enviarCorreoBienvenida(nombre, correo);
 
         res.status(201).json({
             msg: 'Usuario creado exitosamente. Se ha enviado un correo de bienvenida.',
