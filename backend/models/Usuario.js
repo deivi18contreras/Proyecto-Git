@@ -1,26 +1,31 @@
 import { Schema, model } from 'mongoose';
+import bcryptjs from 'bcryptjs';
 
 const UsuarioSchema = Schema({
     nombre: {
         type: String,
-        required: [true, 'El nombre es obligatorio']
+        required: [true, 'El nombre es obligatorio'],
+        trim: true
     },
     documento: {
         type: String,
         required: [true, 'El documento es obligatorio'],
-        unique: true
+        unique: true,
+        trim: true
     },
     correo: {
         type: String,
         required: [true, 'El correo es obligatorio'],
         unique: true,
+        lowercase: true,
+        trim: true,
         match: [/@sanjose\.edu\.co$/, 'El correo debe pertenecer al dominio @sanjose.edu.co']
     },
     password: {
         type: String,
         required: [true, 'La contraseña es obligatoria'],
-        // Validación de contraseña: mín 8 carac, una mayúscula, un número y un carácter especial (HUS-02-T3)
-        match: [/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, 'La contraseña debe tener mínimo 8 caracteres, una mayúscula, un número y un carácter especial']
+        // [HUS-02-T3] Política de Seguridad: mín 8 carac, una mayúscula, un número y un carácter especial
+        match: [/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/, 'La contraseña debe tener mínimo 8 caracteres, una mayúscula un número y un carácter especial']
     },
     rol: {
         type: String,
@@ -43,6 +48,19 @@ const UsuarioSchema = Schema({
     }
 }, {
     timestamps: true
+});
+
+// Hashing the password before saving (HUS-02-T3)
+UsuarioSchema.pre('save', function(next) {
+    if (!this.isModified('password')) return next();
+    
+    try {
+        const salt = bcryptjs.genSaltSync();
+        this.password = bcryptjs.hashSync(this.password, salt);
+        next();
+    } catch (error) {
+        next(error);
+    }
 });
 
 // Ocultar password en la respuesta JSON

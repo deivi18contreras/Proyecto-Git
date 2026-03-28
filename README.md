@@ -72,8 +72,9 @@ backend/                     front/
 
 ## ✅ Estado de Ejecución Actual
 
- - []Estructura base Backend/Frontend (ESM, Quasar, Vite).
- - []Modelo de datos Usuario.js y conexión MongoDB.
- - []Vistas funcionales: Login, Dashboard y Registro.
- - []Persistencia local configurada.
- - []Gitignore profesional.
+ - [x] Estructura base Backend/Frontend (ESM, Quasar, Vite).
+ - [x] Modelo de datos Usuario.js y conexión MongoDB.
+ - [x] Lógica de Autenticación (JWT, Bcrypt, Bloqueo de cuenta).
+ - [ ] Vistas funcionales: Login, Dashboard y Registro.
+ - [ ] Persistencia local configurada.
+ - [x] Gitignore profesional.
