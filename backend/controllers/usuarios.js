@@ -15,7 +15,7 @@ export const usuariosPost = async (req = request, res = response) => {
     const existeDocumento = await Usuario.findOne({ documento });
     if (existeDocumento) {
         return res.status(400).json({
-            msg: 'El documento de identidad ya está registrado'
+            msg: 'El documento de identidad ya está registrado.'
         });
     }
 
