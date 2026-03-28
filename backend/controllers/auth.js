@@ -77,3 +77,21 @@ export const login = async (req = request, res = response) => {
         });
     }
 };
+
+// [HUS-01-T2] C3: Habilitar enlace de recuperación de contraseña (Simulación local)
+export const recuperarPassword = async (req = request, res = response) => {
+    const { correo } = req.body;
+
+    try {
+        // En una aplicación real buscaríamos al usuario y enviaríamos un token por correo
+        // Para este proyecto de prueba, simplemente confirmamos la recepción
+        res.json({
+            msg: `Si el correo ${correo} está registrado, recibirá instrucciones de recuperación.`
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            msg: 'Error en el proceso de recuperación'
+        });
+    }
+};
