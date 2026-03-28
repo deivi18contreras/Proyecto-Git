@@ -25,7 +25,7 @@ const UsuarioSchema = Schema({
         type: String,
         required: [true, 'La contraseña es obligatoria'],
         // [HUS-02-T3] Política de Seguridad: mín 8 carac, una mayúscula, un número y un carácter especial
-        match: [/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/, 'La contraseña debe tener mínimo 8 caracteres, una mayúscula, un número y un carácter especial']
+        match: [/^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/, 'La contraseña debe tener mínimo 8 caracteres, una mayúscula un número y un carácter especial']
     },
     rol: {
         type: String,
