@@ -1,5 +1,4 @@
 import { response, request } from 'express';
-import bcryptjs from 'bcryptjs';
 import Usuario from '../models/Usuario.js';
 
 export const usuariosPost = async (req = request, res = response) => {
@@ -26,11 +25,7 @@ export const usuariosPost = async (req = request, res = response) => {
     try {
         const usuario = new Usuario({ nombre, documento, correo, password, rol });
 
-        // Encriptar la contraseña
-        const salt = bcryptjs.genSaltSync();
-        usuario.password = bcryptjs.hashSync(password, salt);
-
-        // Guardar en DB
+        // Guardar en DB (Mongoose validará y luego hasheará en pre('save'))
         await usuario.save();
 
         // HUS-02-T4: Simular envío de correo de bienvenida
