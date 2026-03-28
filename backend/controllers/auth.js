@@ -1,6 +1,7 @@
 import { response, request } from 'express';
 import bcryptjs from 'bcryptjs';
 import Usuario from '../models/Usuario.js';
+import { generarJWT } from '../helpers/generar-jwt.js';
 
 export const login = async (req = request, res = response) => {
     const { correo, password } = req.body;
@@ -61,10 +62,12 @@ export const login = async (req = request, res = response) => {
         usuario.lockUntil = undefined;
         await usuario.save();
 
-        // Respuesta exitosa (aquí iría el JWT en una fase posterior si se requiere)
+        // Generar un JWT real (HUS-01)
+        const token = await generarJWT(usuario.id);
+
         res.json({
             usuario,
-            token: 'TOKEN_SIMULADO_JWT' // En el README no pidieron JWT pero es buena práctica
+            token
         });
 
     } catch (error) {
